@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KPR Institute of Engineering and Technology - Student Admission Registration Portal (Web Technology Assignment 2)">
+    <title>KPRIET - Student Admission Portal | Q1</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="bg-gradient-wrapper"></div>
+
+    <div class="page-container">
+        <!-- Institution Header Card -->
+        <header class="header-card">
+            <div class="header-brand">
+                <div class="logo-badge">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="header-titles">
+                    <h1>KPR Institute of Engineering and Technology</h1>
+                    <span class="sub-heading">(Autonomous) • Avinashi Road, Arasur, Coimbatore - 641 407</span>
+                </div>
+            </div>
+            <div class="meta-strip">
+                <div class="meta-item"><i class="fa-solid fa-building-columns"></i> Dept: <strong>CSE</strong></div>
+                <div class="meta-item"><i class="fa-solid fa-calendar"></i> Ac.Yr: <strong>2026-2027</strong></div>
+                <div class="meta-item"><i class="fa-solid fa-book"></i> <strong>U21CS501 Web Technology</strong></div>
+                <div class="meta-item badge-pill"><i class="fa-solid fa-award"></i> Assignment II - Question 1</div>
+            </div>
+        </header>
+
+        <!-- Main Registration Form Container -->
+        <main class="form-wrapper">
+            <div class="form-header">
+                <div class="header-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+                <div>
+                    <h2>Student Registration Portal</h2>
+                    <p>Please complete all required details and upload valid profile images and verification documents.</p>
+                </div>
+            </div>
+
+            <form id="registrationForm" novalidate>
+                <!-- Form Layout Grid -->
+                <div class="form-grid">
+                    
+                    <!-- Full Name -->
+                    <div class="input-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <div class="input-field-wrapper">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <input type="text" id="fullName" name="fullName" placeholder="e.g. Aravind Swamy" required>
+                            <i class="fa-solid fa-circle-check status-icon valid"></i>
+                            <i class="fa-solid fa-circle-xmark status-icon invalid"></i>
+                        </div>
+                        <small class="error-msg" id="nameError">Full name is required (minimum 3 characters).</small>
+                    </div>
+
+                    <!-- Roll Number -->
+                    <div class="input-group">
+                        <label for="rollNumber">Roll Number <span class="required">*</span></label>
+                        <div class="input-field-wrapper">
+                            <i class="fa-solid fa-id-card input-icon"></i>
+                            <input type="text" id="rollNumber" name="rollNumber" placeholder="e.g. 7377211CS101" required>
+                            <i class="fa-solid fa-circle-check status-icon valid"></i>
+                            <i class="fa-solid fa-circle-xmark status-icon invalid"></i>
+                        </div>
+                        <small class="error-msg" id="rollError">Format: 12 alphanumeric characters (e.g. 7377211CS101).</small>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="input-group">
+                        <label for="email">Institutional Email <span class="required">*</span></label>
+                        <div class="input-field-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="email" name="email" placeholder="student@kpriet.ac.in" required>
+                            <i class="fa-solid fa-circle-check status-icon valid"></i>
+                            <i class="fa-solid fa-circle-xmark status-icon invalid"></i>
+                        </div>
+                        <small class="error-msg" id="emailError">Please enter a valid institutional email address.</small>
+                    </div>
+
+                    <!-- Course Selection -->
+                    <div class="input-group">
+                        <label for="course">Enrolled Degree Course <span class="required">*</span></label>
+                        <div class="input-field-wrapper">
+                            <i class="fa-solid fa-laptop-code input-icon"></i>
+                            <select id="course" name="course" required>
+                                <option value="">-- Select Academic Course --</option>
+                                <option value="B.E. Computer Science and Engineering">B.E. Computer Science and Engineering</option>
+                                <option value="B.Tech Information Technology">B.Tech Information Technology</option>
+                                <option value="B.E. Artificial Intelligence & Data Science">B.E. Artificial Intelligence & Data Science</option>
+                                <option value="B.E. Cyber Security">B.E. Cyber Security</option>
+                                <option value="B.E. Electronics and Communication">B.E. Electronics and Communication</option>
+                            </select>
+                        </div>
+                        <small class="error-msg" id="courseError">Please select your academic course.</small>
+                    </div>
+
+                    <!-- Password Field & Dynamic Strength Meter -->
+                    <div class="input-group full-width">
+                        <label for="password">Account Password <span class="required">*</span></label>
+                        <div class="input-field-wrapper">
+                            <i class="fa-solid fa-lock input-icon"></i>
+                            <input type="password" id="password" name="password" placeholder="Create a secure password" required>
+                            <button type="button" class="toggle-password" id="togglePasswordBtn" aria-label="Toggle password visibility">
+                                <i class="fa-solid fa-eye" id="toggleEye"></i>
+                            </button>
+                        </div>
+                        <!-- Password Strength Indicator Bar -->
+                        <div class="strength-meter-container">
+                            <div class="strength-bar-track">
+                                <div class="strength-bar-fill" id="strengthBar"></div>
+                            </div>
+                            <span class="strength-text" id="strengthText">Password Strength</span>
+                        </div>
+                        <div class="password-rules">
+                            <span class="rule" id="ruleLength"><i class="fa-solid fa-circle-dot"></i> At least 8 characters</span>
+                            <span class="rule" id="ruleUpper"><i class="fa-solid fa-circle-dot"></i> Upper & lower case</span>
+                            <span class="rule" id="ruleNumber"><i class="fa-solid fa-circle-dot"></i> At least 1 number</span>
+                            <span class="rule" id="ruleSymbol"><i class="fa-solid fa-circle-dot"></i> Special symbol (@, #, $, etc.)</span>
+                        </div>
+                        <small class="error-msg" id="passwordError">Password must satisfy all security requirements above.</small>
+                    </div>
+
+                    <!-- File Upload Section: Profile Image -->
+                    <div class="input-group">
+                        <label for="profileImage">Profile Image (JPG, PNG - Max 5MB) <span class="required">*</span></label>
+                        <div class="file-dropzone" id="profileDropzone">
+                            <i class="fa-solid fa-cloud-arrow-up dropzone-icon"></i>
+                            <p class="dropzone-text">Click or drag & drop student photo</p>
+                            <input type="file" id="profileImage" name="profileImage" accept="image/jpeg, image/png" required class="file-input-hidden">
+                            <div class="file-preview-pill hidden" id="profilePreviewPill">
+                                <img src="" alt="Profile Preview" id="profilePreviewImg" class="thumb-img">
+                                <span class="filename" id="profileFileName">photo.jpg</span>
+                                <button type="button" class="remove-file-btn" id="removeProfileBtn"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </div>
+                        <small class="error-msg" id="profileImageError">Please select a valid image file (JPG or PNG under 5MB).</small>
+                    </div>
+
+                    <!-- File Upload Section: Documents -->
+                    <div class="input-group">
+                        <label for="idProof">ID Proof / Certificate (PDF/DOCX - Max 5MB) <span class="required">*</span></label>
+                        <div class="file-dropzone" id="docDropzone">
+                            <i class="fa-solid fa-file-pdf dropzone-icon"></i>
+                            <p class="dropzone-text">Click or drag & drop ID document</p>
+                            <input type="file" id="idProof" name="idProof" accept="application/pdf, .docx, .doc" required class="file-input-hidden">
+                            <div class="file-preview-pill hidden" id="docPreviewPill">
+                                <i class="fa-solid fa-file-lines doc-icon"></i>
+                                <span class="filename" id="docFileName">document.pdf</span>
+                                <button type="button" class="remove-file-btn" id="removeDocBtn"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </div>
+                        <small class="error-msg" id="docError">Please upload a valid document file (PDF or DOCX under 5MB).</small>
+                    </div>
+
+                </div>
+
+                <!-- Form Action Buttons -->
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary" id="resetBtn">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Form
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Registration
+                    </button>
+                </div>
+            </form>
+
+            <!-- Success Notification Card (Hidden initially) -->
+            <div class="submission-success-card hidden" id="successCard">
+                <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <h3>Registration Submitted Successfully!</h3>
+                <p>Your student profile application has been verified client-side and is ready to be processed by the PHP/MySQL & Java Servlet backends.</p>
+                <div class="success-details" id="submittedSummary"></div>
+                <button class="btn btn-primary" onclick="window.location.reload()">
+                    <i class="fa-solid fa-plus"></i> Submit Another Registration
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="portal-footer">
+            <p>© 2026 KPR Institute of Engineering and Technology | Web Technology Course Assignment 2</p>
+        </footer>
+    </div>
+
+    <script src="js/validation.js"></script>
+</body>
+</html>
