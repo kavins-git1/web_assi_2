@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPRIET - Web Technology Assignment II Landing Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-dark: #090d16;
+            --card-bg: rgba(255, 255, 255, 0.94);
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --radius: 16px;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .bg-blobs::before, .bg-blobs::after {
+            content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%;
+            filter: blur(140px); opacity: 0.35; pointer-events: none;
+        }
+        .bg-blobs::before { background: #3b82f6; top: -150px; left: -150px; }
+        .bg-blobs::after { background: #6366f1; bottom: -150px; right: -150px; }
+
+        .container {
+            position: relative; z-index: 1; width: 100%; max-width: 1000px;
+            display: flex; flex-direction: column; gap: 2rem;
+        }
+
+        .header-card {
+            background: var(--card-bg); backdrop-filter: blur(20px);
+            border-radius: var(--radius); padding: 2rem 2.5rem; box-shadow: var(--shadow);
+            display: flex; flex-direction: column; gap: 1rem; text-align: center;
+        }
+
+        .header-card h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; color: #0f172a; }
+        .header-card p { font-size: 0.95rem; color: var(--text-muted); }
+
+        .meta-strip {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;
+            padding-top: 1rem; border-top: 1px solid #e2e8f0; font-size: 0.88rem; color: #475569;
+        }
+
+        .meta-pill {
+            background: #eff6ff; color: var(--primary); padding: 0.35rem 0.85rem;
+            border-radius: 50px; font-weight: 700; font-size: 0.82rem;
+        }
+
+        .grid-3 {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg); backdrop-filter: blur(20px);
+            border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow);
+            display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px rgba(37, 99, 235, 0.25); }
+
+        .card-icon {
+            width: 56px; height: 56px; border-radius: 14px; background: #eff6ff; color: var(--primary);
+            display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+        }
+
+        .card h2 { font-size: 1.3rem; color: #0f172a; margin-top: 0.5rem; }
+        .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+        .btn {
+            padding: 0.85rem 1.5rem; border-radius: 10px; font-size: 0.9rem; font-weight: 700;
+            text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center;
+            gap: 0.5rem; transition: all 0.25s ease; border: none; cursor: pointer;
+        }
+
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); }
+        .btn-secondary { background: #f1f5f9; color: #0f172a; }
+        .btn-secondary:hover { background: #e2e8f0; }
+
+        .footer { text-align: center; color: #94a3b8; font-size: 0.85rem; padding-top: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="bg-blobs"></div>
+
+    <div class="container">
+        <header class="header-card">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 0.75rem;">
+                <i class="fa-solid fa-graduation-cap" style="font-size: 2.2rem; color: var(--primary);"></i>
+                <h1>KPR Institute of Engineering and Technology</h1>
+            </div>
+            <p>(Autonomous) • Department of Computer Science and Engineering</p>
+            <div class="meta-strip">
+                <div>Ac.Yr: <strong>2026-2027</strong></div>
+                <div>Course: <strong>U21CS501 Web Technology</strong></div>
+                <div class="meta-pill">Assignment II - 40 Marks</div>
+            </div>
+        </header>
+
+        <main class="grid-3">
+            <!-- Question 1 Card -->
+            <div class="card">
+                <div>
+                    <div class="card-icon"><i class="fa-solid fa-wpforms"></i></div>
+                    <h2>Question 1 (8 Marks)</h2>
+                    <p style="margin-top: 0.5rem;"><strong>Front-End Registration Portal</strong></p>
+                    <p style="margin-top: 0.5rem;">HTML5 registration form with CSS glassmorphism, file drag & drop dropzones, and real-time JavaScript validation with password entropy meter.</p>
+                </div>
+                <a href="q1_frontend_portal/index.html" class="btn btn-primary">
+                    <i class="fa-solid fa-rocket"></i> Launch Q1 Registration Portal
+                </a>
+            </div>
+
+            <!-- Question 2 Card -->
+            <div class="card">
+                <div>
+                    <div class="card-icon" style="background: #f0fdf4; color: #10b981;"><i class="fa-solid fa-database"></i></div>
+                    <h2>Question 2 (16 Marks)</h2>
+                    <p style="margin-top: 0.5rem;"><strong>PHP & MySQL Admin Panel</strong></p>
+                    <p style="margin-top: 0.5rem;">PHP backend providing CRUD operations, secure file uploads, MIME checks, file size verification, and MySQL metadata storage.</p>
+                </div>
+                <a href="DOCUMENTATION.md#question-2-php--mysql-admin-panel-crud--file-storage" class="btn btn-secondary">
+                    <i class="fa-solid fa-code"></i> View Q2 PHP Source & Docs
+                </a>
+            </div>
+
+            <!-- Question 3 Card -->
+            <div class="card">
+                <div>
+                    <div class="card-icon" style="background: #e0e7ff; color: #6366f1;"><i class="fa-solid fa-network-wired"></i></div>
+                    <h2>Question 3 (16 Marks)</h2>
+                    <p style="margin-top: 0.5rem;"><strong>Java Servlet & JDBC Portal</strong></p>
+                    <p style="margin-top: 0.5rem;">Java Servlet application using JDBC connection manager, HTTPSession authorization filter, and dynamic binary file streaming servlets.</p>
+                </div>
+                <a href="DOCUMENTATION.md#question-3-java-servlet-jdbc--dynamic-streaming-portal" class="btn btn-secondary">
+                    <i class="fa-solid fa-book"></i> View Q3 Servlet Source & Docs
+                </a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 KPR Institute of Engineering and Technology | Web Technology Assignment II</p>
+        </footer>
+    </div>
+</body>
+</html>
